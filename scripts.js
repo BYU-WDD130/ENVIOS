@@ -5,6 +5,7 @@ let carrito = [];
 function actualizarInterfaz() {
     const listaElement = document.getElementById('lista-carrito');
     const vacioMsg = document.getElementById('carrito-vacio');
+    const contadorElement = document.getElementById('contador-productos');
     
     // Limpiamos el contenedor visual
     listaElement.innerHTML = '';
@@ -12,8 +13,36 @@ function actualizarInterfaz() {
     if (carrito.length === 0) {
         listaElement.appendChild(vacioMsg);
         vacioMsg.style.display = 'block';
+        contadorElement.textContent = '0'; // Si está vacío, el contador es 0
         return;
     }
+
+    vacioMsg.style.display = 'none';
+
+    // Calculamos el número total de artículos sumando las cantidades
+    let totalArticulos = 0;
+
+    // Generamos cada elemento de la lista de compras
+    carrito.forEach((producto, index) => {
+        totalArticulos += parseInt(producto.cantidad);
+
+        const li = document.createElement('li');
+        li.className = 'producto-item';
+        li.innerHTML = `
+            <div style="max-width: 80%;">
+                <strong>${producto.cantidad}x</strong> ${producto.nombre}
+                <br><small style="color:#666; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    ${producto.nota ? producto.nota : 'Sin detalles'}
+                </small>
+            </div>
+            <button onclick="eliminarDelCarrito(${index})" title="Eliminar producto">✕</button>
+        `;
+        listaElement.appendChild(li);
+    });
+
+    // Actualizamos el número en el círculo verde del HTML
+    contadorElement.textContent = totalArticulos;
+}
 
     vacioMsg.style.display = 'none';
 
