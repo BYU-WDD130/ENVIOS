@@ -59,7 +59,7 @@ function actualizarInterfaz() {
         `;
         listaElement.appendChild(li);
     });
-}
+
 
 function agregarAlCarrito() {
     const url = document.getElementById('prod-url').value.trim();
