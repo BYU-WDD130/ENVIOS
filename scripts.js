@@ -4,32 +4,28 @@ let carrito = [];
 
 function actualizarInterfaz() {
     const listaElement = document.getElementById('lista-carrito');
-    const vacioMsg = document.getElementById('carrito-vacio');
     const contadorElement = document.getElementById('contador-productos');
     
-    // Limpiamos el contenedor visual
+    // Limpiamos el contenedor por completo para redibujarlo de cero
     listaElement.innerHTML = '';
     
+    // Si el carrito está verdaderamente vacío
     if (carrito.length === 0) {
-        listaElement.appendChild(vacioMsg);
-        vacioMsg.style.display = 'block';
-        contadorElement.textContent = '0'; // Si está vacío, el contador es 0
+        listaElement.innerHTML = `<p class="vacio-msg" id="carrito-vacio">Aún no has agregado productos a tu lista.</p>`;
+        contadorElement.textContent = '0';
         return;
     }
 
-    vacioMsg.style.display = 'none';
-
-    // Calculamos el número total de artículos sumando las cantidades
     let totalArticulos = 0;
 
-    // Generamos cada elemento de la lista de compras
+    // Recorremos el arreglo de productos y los dibujamos uno por uno
     carrito.forEach((producto, index) => {
         totalArticulos += parseInt(producto.cantidad);
 
         const li = document.createElement('li');
         li.className = 'producto-item';
         li.innerHTML = `
-            <div style="max-width: 80%;">
+            <div style="max-width: 80%; text-align: left;">
                 <strong>${producto.cantidad}x</strong> ${producto.nombre}
                 <br><small style="color:#666; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                     ${producto.nota ? producto.nota : 'Sin detalles'}
@@ -40,53 +36,45 @@ function actualizarInterfaz() {
         listaElement.appendChild(li);
     });
 
-    // Actualizamos el número en el círculo verde del HTML
+    // Actualizamos el número en el círculo verde
     contadorElement.textContent = totalArticulos;
 }
 
-    vacioMsg.style.display = 'none';
-
-    // Generamos cada elemento de la lista de compras
-    carrito.forEach((producto, index) => {
-        const li = document.createElement('li');
-        li.className = 'producto-item';
-        li.innerHTML = `
-            <div>
-                <strong>${producto.cantidad}x</strong> ${producto.nombre}
-                <br><small style="color:#666;">${producto.nota ? producto.nota : 'Sin detalles adicionales'}</small>
-            </div>
-            <button onclick="eliminarDelCarrito(${index})">X</button>
-        `;
-        listaElement.appendChild(li);
-    });
-
-
 function agregarAlCarrito() {
-    const url = document.getElementById('prod-url').value.trim();
-    const nombre = document.getElementById('prod-nombre').value.trim();
-    const cantidad = document.getElementById('prod-cantidad').value;
-    const nota = document.getElementById('prod-nota').value.trim();
+    const urlInput = document.getElementById('prod-url');
+    const nombreInput = document.getElementById('prod-nombre');
+    const cantidadInput = document.getElementById('prod-cantidad');
+    const notaInput = document.getElementById('prod-nota');
 
-    // Validación básica de campos obligatorios
+    const url = urlInput.value.trim();
+    const nombre = nombreInput.value.trim();
+    const cantidad = cantidadInput.value;
+    const nota = notaInput.value.trim();
+
+    // Validación para obligar a llenar los datos principales
     if (!url || !nombre) {
         alert('Por favor, ingresa al menos el enlace (link) y el nombre del producto.');
         return;
     }
 
+    // Insertamos el objeto al arreglo global
     const nuevoProducto = { url, nombre, cantidad, nota };
     carrito.push(nuevoProducto);
 
-    // Resetear los inputs del formulario para el siguiente producto
-    document.getElementById('prod-url').value = '';
-    document.getElementById('prod-nombre').value = '';
-    document.getElementById('prod-cantidad').value = '1';
-    document.getElementById('prod-nota').value = '';
+    // Reseteamos los campos del formulario para que queden limpios
+    urlInput.value = '';
+    nombreInput.value = '';
+    cantidadInput.value = '1';
+    notaInput.value = '';
 
+    // Forzamos la actualización visual de la pantalla
     actualizarInterfaz();
 }
 
 function eliminarDelCarrito(index) {
+    // Removemos el artículo seleccionado del array
     carrito.splice(index, 1);
+    // Volvemos a pintar la lista actualizada
     actualizarInterfaz();
 }
 
@@ -96,7 +84,6 @@ function enviarPedidoWhatsApp() {
         return;
     }
 
-    // Estructura del mensaje de texto que recibirás en tu WhatsApp
     let mensaje = `¡Hola NJ Express! Me gustaría cotizar el envío de los siguientes productos a Ecuador:\n\n`;
 
     carrito.forEach((prod, index) => {
@@ -110,12 +97,8 @@ function enviarPedidoWhatsApp() {
 
     mensaje += `Por favor, ayúdame con el valor total del servicio y las formas de pago. ¡Gracias!`;
 
-    // Codificamos el mensaje de texto para que sea compatible con una URL de navegador
     const mensajeCodificado = encodeURIComponent(mensaje);
-    
-    // Armamos la URL final hacia la API de WhatsApp
     const urlWhatsApp = `https://wa.me/${MI_WHATSAPP}?text=${mensajeCodificado}`;
 
-    // Abre el chat en una nueva pestaña
     window.open(urlWhatsApp, '_blank');
 }
