@@ -378,12 +378,7 @@ button.btn-add:hover {
     text-align: center;
 }
 
-.contenedor-widget-instagram {
-    margin-top: 1rem;
-    min-height: 200px; /* Le da un espacio reservado mientras carga */
-    width: 100%;
-    overflow: hidden;
-}
+
 
 /* Ajuste responsivo para que en teléfonos no se deforme el botón grande */
 @media (max-width: 480px) {
