@@ -1,16 +1,55 @@
 // Arreglo global para almacenar los productos añadidos
 let carrito = [];
 
-// Función para actualizar la interfaz visual de la lista fija lateral
+// Escuchador de eventos cuando el HTML se carga por completo
+document.addEventListener("DOMContentLoaded", () => {
+    const btnPegar = document.getElementById("btn-pegar-link");
+    const inputUrl = document.getElementById("prod-url");
+
+    if (btnPegar && inputUrl) {
+        btnPegar.addEventListener("click", async () => {
+            try {
+                // Comprobamos la compatibilidad con el navegador móvil
+                if (!navigator.clipboard) {
+                    alert("Tu navegador no soporta el pegado automático. Por favor, mantén presionado el cuadro de texto para pegar.");
+                    return;
+                }
+                
+                // Leemos el portapapeles de manera asíncrona
+                const textoClipart = await navigator.clipboard.readText();
+                
+                if (textoClipart.trim() !== "") {
+                    inputUrl.value = textoClipart;
+                    
+                    // Pequeña animación visual de éxito (Pasa temporalmente a amarillo neón)
+                    btnPegar.innerHTML = '<i class="fas fa-check"></i> ¡Pegado!';
+                    btnPegar.style.backgroundColor = "var(--secondary-neon)";
+                    
+                    setTimeout(() => {
+                        btnPegar.innerHTML = '<i class="fas fa-paste"></i> Pegar';
+                        btnPegar.style.backgroundColor = "";
+                    }, 1800);
+                } else {
+                    alert("El portapapeles está vacío. Copia primero un enlace de la tienda.");
+                }
+            } catch (err) {
+                // Si el usuario deniega los permisos de lectura de portapapeles
+                alert("Para activar el pegado rápido, permite el acceso al portapapeles cuando el celular lo solicite.");
+            }
+        });
+    }
+});
+
+// Función para actualizar la interfaz visual de la lista fija lateral sin perder el nodo base
 function actualizarInterfazCarrito() {
     const listaHtml = document.getElementById('lista-carrito');
     const contadorHtml = document.getElementById('contador-productos');
     const msgVacio = document.getElementById('carrito-vacio');
     
-    listaHtml.innerHTML = '';
+    // Removemos únicamente los productos listados previamente, protegiendo el mensaje base
+    listaHtml.querySelectorAll('.item-carrito').forEach(item => item.remove());
     
     if (carrito.length === 0) {
-        listaHtml.appendChild(msgVacio);
         msgVacio.style.display = 'block';
         contadorHtml.innerText = '0';
         return;
@@ -57,6 +96,7 @@ function agregarAlCarrito() {
     
     carrito.push(nuevoProducto);
     
+    // Reseteamos valores del formulario
     urlInput.value = '';
     nombreInput.value = '';
     cantidadInput.value = '1';
@@ -71,7 +111,7 @@ function eliminarDelCarrito(index) {
     actualizarInterfazCarrito();
 }
 
-// Función constructora para empaquetar el pedido y redirigir al WhatsApp de Silvia Cruz
+// Función constructora para empaquetar el pedido y redirigir al WhatsApp
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) {
         alert('Tu lista de pedidos está vacía. Añade al menos un producto antes de enviarlo.');

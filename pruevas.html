@@ -110,7 +110,12 @@
                 <form id="form-producto" onsubmit="event.preventDefault(); agregarAlCarrito();">
                     <div class="form-grupo">
                         <label for="prod-url">Enlace / Link del producto:</label>
-                        <input type="url" id="prod-url" placeholder="https://www.amazon.com/dp/..." required>
+                        <div class="input-con-boton">
+                            <input type="url" id="prod-url" placeholder="https://www.amazon.com/dp/..." required>
+                            <button type="button" id="btn-pegar-link" class="btn-pegar" title="Pegar enlace copiado">
+                                <i class="fas fa-paste"></i> Pegar
+                            </button>
+                        </div>
                     </div>
                     <div class="form-grupo">
                         <label for="prod-nombre">¿Qué producto es? (Nombre o descripción corta):</label>
