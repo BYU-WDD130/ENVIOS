@@ -303,3 +303,25 @@ button.btn-add:hover {
     text-align: center;
     padding: 1rem;
 }
+
+/* Estilo especial destacado para tu tienda propia de Instagram */
+.tienda-card.tienda-propia {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+    grid-column: span 2; /* Ocupa el doble de espacio en pantallas grandes para resaltar */
+}
+
+.tienda-card.tienda-propia:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(220, 39, 67, 0.6);
+    background: linear-gradient(45deg, #bc1888 0%, #cc2366 25%, #dc2743 50%, #e6683c 75%, #f09433 100%);
+}
+
+/* Ajuste responsivo para que en teléfonos no se deforme el botón grande */
+@media (max-width: 480px) {
+    .tienda-card.tienda-propia {
+        grid-column: span 1;
+    }
+}
