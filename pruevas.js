@@ -86,7 +86,7 @@ function enviarPedidoWhatsApp() {
         mensajeCompleto += `📦 *Producto ${idx + 1}:* ${prod.nombre}\n`;
         mensajeCompleto += `🔢 *Cantidad:* ${prod.cantidad}\n`;
         if (prod.detalles) {
-            mensajeCompleto += `🎨 *Detalles:* ${prod.detalles}\n`;
+            mensajeCompleto += ` *Detalles:* ${prod.detalles}\n`;
         }
         mensajeCompleto += `🔗 *Link:* ${prod.url}\n`;
         mensajeCompleto += `-----------------------------------\n`;
