@@ -1,0 +1,21 @@
+{
+  "name": "NJ Express Ecuador",
+  "short_name": "NJExpress",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#1a237e",
+  "theme_color": "#00e676",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icono-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icono-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
