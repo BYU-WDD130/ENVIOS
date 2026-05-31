@@ -1,3 +1,4 @@
+// CONFIGURACIÓN: Cambia este número por tu número de WhatsApp real (con código de país, sin el "+")
 const MI_WHATSAPP = "10000000000"; 
 
 let carrito = [];
@@ -6,7 +7,6 @@ function actualizarInterfaz() {
     const listaElement = document.getElementById('lista-carrito');
     const contadorElement = document.getElementById('contador-productos');
     
-    // Validamos que el contenedor de la lista exista en el HTML para evitar errores
     if (!listaElement || !contadorElement) return;
 
     listaElement.innerHTML = '';
@@ -24,12 +24,10 @@ function actualizarInterfaz() {
 
         const li = document.createElement('li');
         li.className = 'producto-item';
+        // Ajustado para mostrar únicamente la cantidad y el nombre de forma limpia al cliente
         li.innerHTML = `
             <div style="max-width: 80%; text-align: left;">
                 <strong>${producto.cantidad}x</strong> ${producto.nombre}
-                <br><small style="color:#666; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                    ${producto.nota ? producto.nota : 'Sin detalles'}
-                </small>
             </div>
             <button onclick="eliminarDelCarrito(${index})" title="Eliminar producto">✕</button>
         `;
@@ -60,7 +58,7 @@ function agregarAlCarrito() {
     const nuevoProducto = { url, nombre, cantidad, nota };
     carrito.push(nuevoProducto);
 
-    // Reseteamos el formulario
+    // Reseteamos el formulario para el siguiente producto
     urlInput.value = '';
     nombreInput.value = '';
     cantidadInput.value = '1';
@@ -80,18 +78,19 @@ function enviarPedidoWhatsApp() {
         return;
     }
 
-    let mensaje = `¡Hola NJ Express! Me gustaría cotizar el envío de los siguientes productos a Ecuador:\n\n`;
+    // Encabezado del mensaje que recibirás
+    let mensaje = `¡Hola NJ Express! Me gustaría cotizar los siguientes productos para enviar a Ecuador:\n\n`;
 
+    // Aquí se genera la lista detallada con TODO lo que necesitas para cotizar
     carrito.forEach((prod, index) => {
-        mensaje += `*Producto ${index + 1}:* ${prod.nombre}\n`;
-        mensaje += `- Cantidad: ${prod.cantidad}\n`;
-        if(prod.nota) {
-            mensaje += `- Detalles: ${prod.nota}\n`;
-        }
-        mensaje += `- Link: ${prod.url}\n\n`;
+        mensaje += `*Item #${index + 1}*\n`;
+        mensaje += `▪️ Producto: ${prod.nombre}\n`;
+        mensaje += `▪️ Cantidad: ${prod.cantidad}\n`;
+        mensaje += `▪️ Detalles: ${prod.nota ? prod.nota : 'Ninguno'}\n`;
+        mensaje += `▪️ Link: ${prod.url}\n\n`;
     });
 
-    mensaje += `Por favor, ayúdame con el valor total del servicio y las formas de pago. ¡Gracias!`;
+    mensaje += `Por favor, ayúdame con el valor total del servicio. ¡Gracias!`;
 
     const mensajeCodificado = encodeURIComponent(mensaje);
     const urlWhatsApp = `https://wa.me/${MI_WHATSAPP}?text=${mensajeCodificado}`;
