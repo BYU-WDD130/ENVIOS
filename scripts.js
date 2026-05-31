@@ -6,10 +6,11 @@ function actualizarInterfaz() {
     const listaElement = document.getElementById('lista-carrito');
     const contadorElement = document.getElementById('contador-productos');
     
-    // Limpiamos el contenedor por completo para redibujarlo de cero
+    // Validamos que el contenedor de la lista exista en el HTML para evitar errores
+    if (!listaElement || !contadorElement) return;
+
     listaElement.innerHTML = '';
     
-    // Si el carrito está verdaderamente vacío
     if (carrito.length === 0) {
         listaElement.innerHTML = `<p class="vacio-msg" id="carrito-vacio">Aún no has agregado productos a tu lista.</p>`;
         contadorElement.textContent = '0';
@@ -18,7 +19,6 @@ function actualizarInterfaz() {
 
     let totalArticulos = 0;
 
-    // Recorremos el arreglo de productos y los dibujamos uno por uno
     carrito.forEach((producto, index) => {
         totalArticulos += parseInt(producto.cantidad);
 
@@ -36,7 +36,6 @@ function actualizarInterfaz() {
         listaElement.appendChild(li);
     });
 
-    // Actualizamos el número en el círculo verde
     contadorElement.textContent = totalArticulos;
 }
 
@@ -46,35 +45,32 @@ function agregarAlCarrito() {
     const cantidadInput = document.getElementById('prod-cantidad');
     const notaInput = document.getElementById('prod-nota');
 
+    if (!urlInput || !nombreInput || !cantidadInput || !notaInput) return;
+
     const url = urlInput.value.trim();
     const nombre = nombreInput.value.trim();
     const cantidad = cantidadInput.value;
     const nota = notaInput.value.trim();
 
-    // Validación para obligar a llenar los datos principales
     if (!url || !nombre) {
         alert('Por favor, ingresa al menos el enlace (link) y el nombre del producto.');
         return;
     }
 
-    // Insertamos el objeto al arreglo global
     const nuevoProducto = { url, nombre, cantidad, nota };
     carrito.push(nuevoProducto);
 
-    // Reseteamos los campos del formulario para que queden limpios
+    // Reseteamos el formulario
     urlInput.value = '';
     nombreInput.value = '';
     cantidadInput.value = '1';
     notaInput.value = '';
 
-    // Forzamos la actualización visual de la pantalla
     actualizarInterfaz();
 }
 
 function eliminarDelCarrito(index) {
-    // Removemos el artículo seleccionado del array
     carrito.splice(index, 1);
-    // Volvemos a pintar la lista actualizada
     actualizarInterfaz();
 }
 
