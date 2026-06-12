@@ -36,18 +36,27 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);
+
 }
 
-.logo .logo-text {
-    font-size: 1.5rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* Contenedor del logo en la esquina superior izquierda */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.logo .accent-text {
-    color: var(--secondary-neon);
+/* Estilos para que la imagen del logo no se deforme */
+.logo-img {
+    max-height: 100px;       /* Ajusta esta altura según qué tan grande quieras el logo */
+    width: auto;         /* Mantiene la proporción original de tu logo */
+    object-fit: contain;
+    display: block;
+}
+
+/* Opcional: un pequeño efecto visual al pasar el mouse por encima */
+.logo-img:hover {
+    opacity: 0.9;
 }
 
 .nav-menu a {
