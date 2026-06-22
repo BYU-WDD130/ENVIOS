@@ -47,15 +47,18 @@ body {
 
 /* Estilos para que la imagen del logo no se deforme */
 .logo-img {
-    max-height: 100px;       /* Ajusta esta altura según qué tan grande quieras el logo */
+    max-height: 60px;       /* Ajusta esta altura según qué tan grande quieras el logo */
     width: auto;         /* Mantiene la proporción original de tu logo */
     object-fit: contain;
     display: block;
+    filter: drop-shadow(0px 2px 8px rgba(255, 255, 255, 0.8)); 
+    transition: transform 0.3s ease;
 }
 
 /* Opcional: un pequeño efecto visual al pasar el mouse por encima */
 .logo-img:hover {
-    opacity: 0.9;
+
+    transform: scale(1.35);
 }
 
 .nav-menu a {
