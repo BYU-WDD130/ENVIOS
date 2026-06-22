@@ -62,24 +62,14 @@
                 <p class="section-desc">También te traemos productos en tendencia directo de los locales y outlets físicos más importantes de Estados Unidos.</p>
                 
                 <div class="grid-fisicas">
-                    <div class="fisica-card" style="background-image: linear-gradient(to bottom, rgba(18,24,46,0.3), rgba(18,24,46,0.95)), url('https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=500&auto=format&fit=crop&q=60');">
-                        <div class="fisica-info">
-                            <h3>SEPHORA</h3>
-                            <p>Maquillaje, skin care y cosméticos exclusivos.</p>
-                        </div>
-                    </div>
-                    <div class="fisica-card" style="background-image: linear-gradient(to bottom, rgba(18,24,46,0.3), rgba(18,24,46,0.95)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500&auto=format&fit=crop&q=60');">
-                        <div class="fisica-info">
-                            <h3>BATH & BODY WORKS</h3>
-                            <p>Fragancias, cremas y velas aromáticas para el hogar.</p>
-                        </div>
-                    </div>
-                    <div class="fisica-card" style="background-image: linear-gradient(to bottom, rgba(18,24,46,0.3), rgba(18,24,46,0.95)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60');">
-                        <div class="fisica-info">
-                            <h3>OUTLETS PREMIUM</h3>
-                            <p>Ropa y calzado de marca (Nike, Adidas, Calvin Klein) con descuentos físicos.</p>
-                        </div>
-                    </div>
+                    
+                    <div class="fisica-card bg-sephora">                      <h3>SEPHORA</h3>
+                            <p>Maquillaje, skin care y cosméticos exclusivos.</p></div>
+                            
+                    <div class="fisica-card bg-bath">                      <h3>BATH & BODY</h3>
+                            <p>Productos de cuidado personal y baño.</p></div>
+                    <div class="fisica-card bg-outlets">                      <h3>OUTLETS</h3>
+                            <p>Ofertas especiales en productos de diversas marcas.</p></div>
                 </div>
             </section>
 
@@ -87,11 +77,10 @@
                 <h2><i class="fas fa-play-circle icon-yellow"></i> ¿Cómo agregar tus enlaces? Mira este video corto</h2>
                 <div class="grid-tutorial">
                     <div class="contenedor-video">
-                        <video controls poster="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=500&auto=format&fit=crop&q=60" width="100%">
-                            <source src="tu-video.mp4" type="video/mp4">
-                            Tu navegador no soporta videos incrustados.
-                        </video>
+                     <div id="wrapper-video" style="position: relative; aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=500&auto=format&fit=crop&q=60') center/cover; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="activarVideo()">
+                    <i class="fas fa-play-circle" style="font-size: 4rem; color: var(--secondary-neon); filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));"></i>
                     </div>
+                </div>
                     <div class="pasos-guia">
                         <div class="paso">
                             <span class="numero">1</span>

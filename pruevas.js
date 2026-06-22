@@ -36,6 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Si el usuario deniega los permisos de lectura de portapapeles
                 alert("Para activar el pegado rápido, permite el acceso al portapapeles cuando el celular lo solicite.");
             }
+            function activarVideo() {
+    document.getElementById('wrapper-video').innerHTML = `
+        <video controls autoplay width="100%" style="aspect-ratio: 16/9; border-radius: 8px;">
+            <source src="tu-video.mp4" type="video/mp4">
+            Tu navegador no soporta videos.
+        </video>
+    `;
+}
         });
     }
 });

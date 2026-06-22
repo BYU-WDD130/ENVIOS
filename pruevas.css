@@ -205,13 +205,23 @@ body {
     transform: translateZ(0); /*Forzar aceleracion de hardware para evitar lag al hacer scroll */
 }
 
+.bg-sephora { background-image: linear-gradient(to bottom, rgba(18,24,46,0.3), rgba(18,24,46,0.95)), url('https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&auto=format&fit=crop&q=50'); }
+.bg-bath { background-image: linear-gradient(to bottom, rgba(18,24,46,0.3), rgba(18,24,46,0.95)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&auto=format&fit=crop&q=50'); }
+.bg-outlets { background-image: linear-gradient(to bottom, rgba(18,24,46,0.3), rgba(18,24,46,0.95)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=50'); }
+
 .fisica-card:hover {
     transform: scale(1.02);
     border-color: var(--secondary-neon);
     box-shadow: 0 8px 25px rgba(204, 255, 0, 0.25);
 }
 
-.fisica-info h3 {
+.fisica-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+}
+.fisica-card h3 {
     font-size: 1.2rem;
     font-weight: 800;
     color: var(--secondary-neon);
@@ -219,7 +229,7 @@ body {
     text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
-.fisica-info p {
+.fisica-card p {
     font-size: 0.88rem;
     color: var(--text-light);
     text-shadow: 0 1px 3px rgba(0,0,0,0.8);
