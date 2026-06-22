@@ -1,5 +1,4 @@
-/* --- PALETA DE COLORES LLAMATIVA Y ELÉCTRICA --- */
-:root {
+ :root {
     --bg-dark: #0a0d1a;          
     --bg-card: #12182e;          
     --primary-neon: #00e5ff;     
@@ -203,6 +202,7 @@ body {
     align-items: flex-end;
     padding: 20px;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transform: translateZ(0); /*Forzar aceleracion de hardware para evitar lag al hacer scroll */
 }
 
 .fisica-card:hover {
@@ -551,6 +551,7 @@ input:focus {
     gap: 60px;
     width: max-content;
     animation: scroll 25s linear infinite;
+    will-change: transform; /* Realiza la animación directamente en la GPU del móvil */
 }
 
 .marca-logo {
@@ -609,7 +610,111 @@ input:focus {
     color: var(--secondary-neon);
 }
 
-/* --- RESPONSIVO --- */
+/* --- RESPONSIVO OPTIMIZADO (PERFORMANCE & UX MÓVIL) --- */
+@media (max-width: 1024px) {
+    .container { 
+        grid-template-columns: 1fr; 
+        padding: 15px 4%;
+    }
+    .carrito-fijo { 
+        position: relative; 
+        top: 0; 
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 4%;
+    }
+    
+    .logo-img {
+        max-height: 70px; /* Reduce el tamaño del logo en móviles para no empujar el contenido */
+    }
+
+    .footer-content { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 15px; 
+    }
+
+    /* Optimización de Touch Targets según Google Lighthouse (Mínimo 48px) */
+    .tienda-card {
+        padding: 18px 12px; /* Más espacio interno para pulsaciones fáciles con el pulgar */
+        min-height: 52px;
+    }
+    
+    .nav-menu a {
+        padding: 12px; /* Incrementa el área táctil en el menú superior */
+        display: inline-block;
+    }
+}
+
+@media (max-width: 680px) {
+    .hero-header {
+        padding: 30px 4% 15px 4%;
+    }
+
+    .hero-header h1 { 
+        font-size: 2rem; /* Evita que el título rompa en demasiadas líneas */
+    }
+    
+    .hero-header p {
+        font-size: 1rem;
+    }
+
+    .card-section {
+        padding: 20px 15px; /* Más espacio útil para el contenido central en pantallas angostas */
+        margin-bottom: 20px;
+    }
+
+    .grid-tutorial { 
+        grid-template-columns: 1fr; 
+        gap: 15px;
+    }
+    
+    /* Evita saltos de renderizado al forzar una relación de aspecto nativa en el video */
+    .contenedor-video video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9; 
+    }
+
+    .form-row { 
+        flex-direction: column; 
+        gap: 20px; 
+    }
+    
+    .field-cantidad, .field-detalles { 
+        width: 100%; 
+    }
+    
+    .grid-tiendas { 
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+        gap: 10px;
+    }
+    
+    .navbar { 
+        flex-direction: column; 
+        gap: 12px; 
+        text-align: center; 
+    }
+    
+    .carrusel-contenedor::before, .carrusel-contenedor::after { 
+        width: 40px; /* Reduce los gradientes laterales para ahorrar procesamiento gráfico */
+    }
+    
+    /* El input y el botón de pegar se adaptan perfectamente sin desbordar */
+    .input-con-boton {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .btn-pegar {
+        padding: 0 14px;
+        font-size: 0.85rem;
+    }
+}
+/* --- RESPONSIVO --- 
 @media (max-width: 1024px) {
     .container { grid-template-columns: 1fr; }
     .carrito-fijo { position: relative; top: 0; }
@@ -632,4 +737,4 @@ input:focus {
         padding: 0 12px;
         font-size: 0.85rem;
     }
-}
+}*/
