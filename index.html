@@ -4,60 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NJ Express Ecuador | Tus compras en USA fácil</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="pruevas.css">
 </head>
 <body>
 
-    <header>
-        <h1>NJ Express Ecuador</h1>
-        <p>Compra online en tus tiendas favoritas de USA, agrégalas aquí y te las enviamos a cualquier parte de Ecuador.</p>
+    <header class="navbar">
+<div class="logo-container">
+    <a href="#">
+        <img src="images/logo3.webp" alt="NJ Express Ecuador" class="logo-img" width="180" height="60" fetchpriority="high">
+    </a>
+</div>
+        <nav class="nav-menu">
+            <a href="#" class="active">INICIO</a>
+            <a href="https://wa.me/12018898079" target="_blank" rel="noopener noreferrer">GRUPO DE CATÁLOGO</a>
+        </nav>
     </header>
+
+    <div class="hero-header">
+        <h1>0% Aranceles | <span class="highlight">100% Ahorro</span></h1>
+        <p>Compra online en tus tiendas favoritas de USA, agrega los enlaces aquí abajo y te los enviamos listos a cualquier parte de Ecuador sin sorpresas en el precio.</p>
+    </div>
 
     <div class="container">
         
-        <main>
-
-
-
-
-            <section>
-                <h2>1. Compra en las tiendas más conocidas de NJ / USA</h2>
-                <p>Haz clic en cualquiera de estas tiendas, busca los productos que te gusten y <strong>copia el enlace (link)</strong> del producto.</p>
+        <main class="contenido-principal">
+            
+            <section class="card-section">
+                <h2><i class="fas fa-shopping-bag icon-cyan"></i> 1. Compra en las tiendas más conocidas de USA</h2>
+                <p class="section-desc">Haz clic en cualquiera de estas tiendas, busca los productos que te gusten y <strong>copia el enlace (link)</strong> del artículo.</p>
                 
                 <div class="grid-tiendas">
-
-                    <a href="https://www.instagram.com/silvy_369?utm_source=qr" target="_blank" rel="noopener" class="tienda-card tienda-propia">
-                        Mi Tienda Instagram (Silvy_369)
-                    </a>
-
-                    <a href="https://www.amazon.com" target="_blank" rel="noopener" class="tienda-card">Amazon</a>
-                    <a href="https://www.walmart.com" target="_blank" rel="noopener"class="tienda-card">Walmart</a>
-                    <a href="https://www.ebay.com" target="_blank" rel="noopener" class="tienda-card">eBay</a>
-                    <a href="https://www.gap.com" target="_blank" rel="noopener" class="tienda-card">GAP</a>
-                    <a href="https://www.target.com" target="_blank" rel="noopener" class="tienda-card">Target</a>
-                    <a href="https://www.carters.com" target="_blank" rel="noopener" class="tienda-card">Carter's</a>
-                    <a href="https://www.temu.com" target="_blank" rel="noopener" class="tienda-card">Temu</a>
-                    <a href="https://www.shein.com" target="_blank" rel="noopener" class="tienda-card">Shein</a>
-                    <a href="https://www.victoriassecret.com" target="_blank" rel="noopener" class="tienda-card">Victoria's Secret</a>
-                    <a href="https://www.etsy.com" target="_blank" rel="noopener" class="tienda-card">Etsy</a>
-                    <a href="https://www.shopclues.com" target="_blank" rel="noopener" class="tienda-card">ShopClues</a>
-                    <a href="https://www.alibaba.com" target="_blank" rel="noopener" class="tienda-card">Alibaba</a>
-                    <a href="https://www.bestbuy.com" target="_blank" rel="noopener" class="tienda-card">Best Buy</a>
-                    <a href="https://www.aliexpress.com" target="_blank" rel="noopener" class="tienda-card">AliExpress</a>
+                    <a href="https://www.instagram.com/nj_express_ecuador?igsh=c28wOHhubnBuaGow" target="_blank" class="tienda-card" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i> Mi Tienda Instagram (Silvy_369)</a>
+                    <a href="https://www.amazon.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Amazon</a>
+                    <a href="https://www.walmart.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fas fa-store"></i> Walmart</a>
+                    <a href="https://www.ebay.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fab fa-ebay"></i> eBay</a>
+                    <a href="https://www.gap.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fas fa-tshirt"></i> GAP</a>
+                    <a href="https://www.target.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fas fa-bullseye"></i> Target</a>
+                    <a href="https://www.carters.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fas fa-baby"></i> Carter's</a>
+                    <a href="https://www.temu.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fas fa-box-open"></i> Temu</a>
+                    <a href="https://www.shein.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fas fa-socks"></i> Shein</a>
+                    <a href="https://www.victoriassecret.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fas fa-gem"></i> Victoria's Secret</a>
+                    <a href="https://www.etsy.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fab fa-etsy"></i> Etsy</a>
+                    <a href="https://www.alibaba.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fas fa-industry"></i> Alibaba</a>
+                    <a href="https://www.bestbuy.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fas fa-laptop"></i> Best Buy</a>
+                    <a href="https://www.aliexpress.com" target="_blank" class="tienda-card" rel="noopener noreferrer"><i class="fas fa-plane-departure"></i> AliExpress</a>
                 </div>
             </section>
 
-            <section class="seccion-tutorial">
-                <h2>¿Cómo agregar tus enlaces? Mira este video corto</h2>
+            <section class="card-section seccion-tiendas-fisicas">
+                <h2><i class="fas fa-store icon-yellow"></i> Compras en Tiendas Físicas</h2>
+                <p class="section-desc">También te traemos productos en tendencia directo de los locales y outlets físicos más importantes de Estados Unidos.</p>
+                
+                <div class="grid-fisicas">
+                    
+                    <div class="fisica-card bg-sephora">                      <h3>SEPHORA</h3>
+                            <p>Maquillaje, skin care y cosméticos exclusivos.</p></div>
+
+                    <div class="fisica-card bg-bath">                      <h3>BATH & BODY</h3>
+                            <p>Productos de cuidado personal y baño.</p></div>
+                    <div class="fisica-card bg-outlets">                      <h3>OUTLETS</h3>
+                            <p>Ofertas especiales en productos de diversas marcas.</p></div>
+                </div>
+            </section>
+
+            <section class="card-section seccion-tutorial">
+                <h2><i class="fas fa-play-circle icon-yellow"></i> ¿Cómo agregar tus enlaces? Mira este video corto</h2>
                 <div class="grid-tutorial">
                     <div class="contenedor-video">
-                        <video controls poster="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=500&auto=format&fit=crop&q=60" width="100%">
-                            <source src="tu-video.mp4" type="video/mp4">
-                            Tu navegador no soporta videos incrustados.
-                        </video>
+                     <div id="wrapper-video" style="position: relative; aspect-ratio: 16/9; background: url('https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=500&auto=format&fit=crop&q=60') center/cover; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="activarVideo()">
+                    <i class="fas fa-play-circle" style="font-size: 4rem; color: var(--secondary-neon); filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));"></i>
                     </div>
+                </div>
                     <div class="pasos-guia">
                         <div class="paso">
                             <span class="numero">1</span>
@@ -65,7 +91,7 @@
                         </div>
                         <div class="paso">
                             <span class="numero">2</span>
-                            <p>Copia toda la barra de dirección de arriba (el link).</p>
+                            <p>Copia toda la barra de dirección de arriba (el link largo).</p>
                         </div>
                         <div class="paso">
                             <span class="numero">3</span>
@@ -75,55 +101,95 @@
                 </div>
             </section>
 
-            <section>
-                <h2>2. Agrega los productos que quieres que te traigamos</h2>
-                <div id="form-producto">
+            <section class="card-section">
+                <h2><i class="fas fa-plus-circle icon-cyan"></i> 2. Agrega los productos que quieres que te traigamos</h2>
+                <form id="form-producto" onsubmit="event.preventDefault(); agregarAlCarrito();">
                     <div class="form-grupo">
                         <label for="prod-url">Enlace / Link del producto:</label>
-                        <input type="url" id="prod-url" placeholder="https://www.amazon.com/dp/..." required>
+                        <div class="input-con-boton">
+                            <input type="url" id="prod-url" placeholder="https://www.amazon.com/dp/..." required>
+                            <button type="button" id="btn-pegar-link" class="btn-pegar" title="Pegar enlace copiado">
+                                <i class="fas fa-paste"></i> Pegar
+                            </button>
+                        </div>
                     </div>
                     <div class="form-grupo">
                         <label for="prod-nombre">¿Qué producto es? (Nombre o descripción corta):</label>
                         <input type="text" id="prod-nombre" placeholder="Ej: Zapatos Nike Running negros" required>
                     </div>
                     <div class="form-row">
-                        <div class="form-grupo">
+                        <div class="form-grupo field-cantidad">
                             <label for="prod-cantidad">Cantidad:</label>
-                            <input type="number" id="prod-cantidad" value="1" min="1">
+                            <input type="number" id="prod-cantidad" value="1" min="1" required>
                         </div>
-                        <div class="form-grupo">
+                        <div class="form-grupo field-detalles">
                             <label for="prod-nota">Talla / Color / Detalles (Opcional):</label>
                             <input type="text" id="prod-nota" placeholder="Ej: Talla 9, Color Azul">
                         </div>
                     </div>
-                    <button type="button" class="btn-add" onclick="agregarAlCarrito()">Agregar a mi Lista de Envío</button>
-                </div>
+                    <button type="submit" class="btn-add">Agregar a mi Lista de Envío</button>
+                </form>
             </section>
         </main>
 
-<aside>
-    <section class="carrito-fijo">
-        <h2>Tu Lista de Pedido <span id="contador-productos" class="badge-contador">0</span></h2>
-        
-        <ul id="lista-carrito" class="lista-productos">
-            <p class="vacio-msg" id="carrito-vacio">Aún no has agregado productos a tu lista.</p>
-        </ul>
+        <aside class="barra-lateral">
+            <section class="carrito-fijo">
+                <h2>Tu Lista de Pedido <span id="contador-productos" class="badge-contador">0</span></h2>
+                
+                <ul id="lista-carrito" class="lista-productos">
+                    <p class="vacio-msg" id="carrito-vacio">Aún no has agregado productos a tu lista.</p>
+                </ul>
 
-        <button class="btn-whatsapp" onclick="enviarPedidoWhatsApp()">
-            💬 Enviar Pedido por WhatsApp
-        </button>
+                <button class="btn-whatsapp" onclick="enviarPedidoWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
+                </button>
 
-        <hr class="separador">
+                <hr class="separador">
 
-        <p class="txt-ayuda">¿Tienes dudas sobre cómo funciona o necesitas una cotización directa?</p>
-        <a href="https://wa.me/10000000000?text=Hola,%20tengo%20una%20duda%20sobre%20los%20envíos%20a%20Ecuador." target="_blank" rel="noopener" class="btn-whatsapp btn-contacto-directo">
-            Preguntar por WhatsApp
-        </a>
-    </section>
-</aside>
+                <p class="txt-ayuda">¿Tienes dudas sobre cómo funciona o necesitas una cotización directa?</p>
+                <a href="https://wa.me/12018898079?text=Hola%20Silvia,%20tengo%20una%20duda%20sobre%20los%20envíos%20a%20Ecuador." target="_blank" rel="noopener noreferrer" class="btn-whatsapp btn-contacto-directo">
+                    Preguntar por WhatsApp
+                </a>
+            </section>
+        </aside>
 
     </div>
 
-    <script src="script.js"></script>
+    <section class="seccion-marcas">
+        <h2>Tiendas oficiales en USA con envíos garantizados</h2>
+        <div class="carrusel-contenedor">
+            <div class="carrusel-track">
+                <div class="marca-logo"><i class="fab fa-amazon"></i> AMAZON</div>
+                <div class="marca-logo"><i class="fab fa-apple"></i> APPLE</div>
+                <div class="marca-logo">NIKE</div>
+                <div class="marca-logo">ADIDAS</div>
+                <div class="marca-logo">WALMART</div>
+                <div class="marca-logo">NEW BALANCE</div>
+                <div class="marca-logo">REEBOK</div>
+                <div class="marca-logo">GAP</div>
+                <div class="marca-logo">EBAY</div>
+                
+                <div class="marca-logo"><i class="fab fa-amazon"></i> AMAZON</div>
+                <div class="marca-logo"><i class="fab fa-apple"></i> APPLE</div>
+                <div class="marca-logo">NIKE</div>
+                <div class="marca-logo">ADIDAS</div>
+                <div class="marca-logo">WALMART</div>
+                <div class="marca-logo">NEW BALANCE</div>
+                <div class="marca-logo">REEBOK</div>
+                <div class="marca-logo">GAP</div>
+                <div class="marca-logo">EBAY</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-info">
+        <div class="footer-content">
+            <p><i class="fas fa-user-tie icon-cyan"></i> <strong>Contacto:</strong> Silvia Ramirez</p>
+            <p><i class="fab fa-whatsapp icon-yellow"></i> <strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/12018898079" target="_blank" rel="noopener noreferrer">201-889-8079</a></p>
+            <p><i class="fas fa-map-marker-alt icon-cyan"></i> <strong>Dirección:</strong> 258 Elm Street, Kearny, NJ 07032</p>
+        </div>
+    </footer>
+
+    <script src="pruevas.js" defer></script>
 </body>
 </html>

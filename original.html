@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NJ Express Ecuador | Tus compras en USA fácil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+
+    <header>
+        <h1>NJ Express Ecuador</h1>
+        <p>Compra online en tus tiendas favoritas de USA, agrégalas aquí y te las enviamos a cualquier parte de Ecuador.</p>
+    </header>
+
+    <div class="container">
+        
+        <main>
+
+
+
+
+            <section>
+                <h2>1. Compra en las tiendas más conocidas de NJ / USA</h2>
+                <p>Haz clic en cualquiera de estas tiendas, busca los productos que te gusten y <strong>copia el enlace (link)</strong> del producto.</p>
+                
+                <div class="grid-tiendas">
+
+                    <a href="https://www.instagram.com/silvy_369?utm_source=qr" target="_blank" rel="noopener" class="tienda-card tienda-propia">
+                        Mi Tienda Instagram (Silvy_369)
+                    </a>
+
+                    <a href="https://www.amazon.com" target="_blank" rel="noopener" class="tienda-card">Amazon</a>
+                    <a href="https://www.walmart.com" target="_blank" rel="noopener"class="tienda-card">Walmart</a>
+                    <a href="https://www.ebay.com" target="_blank" rel="noopener" class="tienda-card">eBay</a>
+                    <a href="https://www.gap.com" target="_blank" rel="noopener" class="tienda-card">GAP</a>
+                    <a href="https://www.target.com" target="_blank" rel="noopener" class="tienda-card">Target</a>
+                    <a href="https://www.carters.com" target="_blank" rel="noopener" class="tienda-card">Carter's</a>
+                    <a href="https://www.temu.com" target="_blank" rel="noopener" class="tienda-card">Temu</a>
+                    <a href="https://www.shein.com" target="_blank" rel="noopener" class="tienda-card">Shein</a>
+                    <a href="https://www.victoriassecret.com" target="_blank" rel="noopener" class="tienda-card">Victoria's Secret</a>
+                    <a href="https://www.etsy.com" target="_blank" rel="noopener" class="tienda-card">Etsy</a>
+                    <a href="https://www.shopclues.com" target="_blank" rel="noopener" class="tienda-card">ShopClues</a>
+                    <a href="https://www.alibaba.com" target="_blank" rel="noopener" class="tienda-card">Alibaba</a>
+                    <a href="https://www.bestbuy.com" target="_blank" rel="noopener" class="tienda-card">Best Buy</a>
+                    <a href="https://www.aliexpress.com" target="_blank" rel="noopener" class="tienda-card">AliExpress</a>
+                </div>
+            </section>
+
+            <section class="seccion-tutorial">
+                <h2>¿Cómo agregar tus enlaces? Mira este video corto</h2>
+                <div class="grid-tutorial">
+                    <div class="contenedor-video">
+                        <video controls poster="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=500&auto=format&fit=crop&q=60" width="100%">
+                            <source src="tu-video.mp4" type="video/mp4">
+                            Tu navegador no soporta videos incrustados.
+                        </video>
+                    </div>
+                    <div class="pasos-guia">
+                        <div class="paso">
+                            <span class="numero">1</span>
+                            <p>Entra a la tienda (ej. Amazon) y abre el producto que quieres.</p>
+                        </div>
+                        <div class="paso">
+                            <span class="numero">2</span>
+                            <p>Copia toda la barra de dirección de arriba (el link).</p>
+                        </div>
+                        <div class="paso">
+                            <span class="numero">3</span>
+                            <p>Pégalo aquí abajo, ponle un nombre y agrégalo a tu lista.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>2. Agrega los productos que quieres que te traigamos</h2>
+                <div id="form-producto">
+                    <div class="form-grupo">
+                        <label for="prod-url">Enlace / Link del producto:</label>
+                        <input type="url" id="prod-url" placeholder="https://www.amazon.com/dp/..." required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="prod-nombre">¿Qué producto es? (Nombre o descripción corta):</label>
+                        <input type="text" id="prod-nombre" placeholder="Ej: Zapatos Nike Running negros" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-grupo">
+                            <label for="prod-cantidad">Cantidad:</label>
+                            <input type="number" id="prod-cantidad" value="1" min="1">
+                        </div>
+                        <div class="form-grupo">
+                            <label for="prod-nota">Talla / Color / Detalles (Opcional):</label>
+                            <input type="text" id="prod-nota" placeholder="Ej: Talla 9, Color Azul">
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add" onclick="agregarAlCarrito()">Agregar a mi Lista de Envío</button>
+                </div>
+            </section>
+        </main>
+
+<aside>
+    <section class="carrito-fijo">
+        <h2>Tu Lista de Pedido <span id="contador-productos" class="badge-contador">0</span></h2>
+        
+        <ul id="lista-carrito" class="lista-productos">
+            <p class="vacio-msg" id="carrito-vacio">Aún no has agregado productos a tu lista.</p>
+        </ul>
+
+        <button class="btn-whatsapp" onclick="enviarPedidoWhatsApp()">
+            💬 Enviar Pedido por WhatsApp
+        </button>
+
+        <hr class="separador">
+
+        <p class="txt-ayuda">¿Tienes dudas sobre cómo funciona o necesitas una cotización directa?</p>
+        <a href="https://wa.me/10000000000?text=Hola,%20tengo%20una%20duda%20sobre%20los%20envíos%20a%20Ecuador." target="_blank" rel="noopener" class="btn-whatsapp btn-contacto-directo">
+            Preguntar por WhatsApp
+        </a>
+    </section>
+</aside>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
