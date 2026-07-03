@@ -72,6 +72,30 @@ function eliminarDelCarrito(index) {
     actualizarInterfaz();
 }
 
+function activarVideo(contenedor) {
+    // 1. Inyectamos el video en el contenedor
+    contenedor.innerHTML = `
+        <video id="tutorial-video" controls playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px; object-fit: contain; background: #000;">
+            <source src="images/tutorial.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de este video.
+        </video>
+    `;
+    
+    // 2. Quitamos el click del contenedor para liberar los controles nativos
+    contenedor.removeAttribute("onclick");
+    contenedor.style.cursor = "default";
+
+    // 3. Forzamos el inicio del video mediante código para saltar bloqueos del navegador
+    const video = document.getElementById("tutorial-video");
+    if (video) {
+        video.play().catch(error => {
+            console.log("La reproducción automática fue bloqueada, intentando reproducir de nuevo:", error);
+            // Si el navegador se pone muy estricto, lo reproduce silenciado primero para que no falle
+            video.muted = true;
+            video.play();
+        });
+    }
+}
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) {
         alert('Tu lista de pedido está vacía. Agrega algún producto primero.');
