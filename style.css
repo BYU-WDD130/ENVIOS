@@ -118,11 +118,12 @@ h2 {
     align-items: center;
 }
 
-.contenedor-video video {
+.contenedor-video video{
     display: block;
     width: 100%;
     height: auto;
 }
+
 
 .pasos-guia {
     display: flex;

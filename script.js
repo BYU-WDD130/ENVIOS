@@ -76,7 +76,7 @@ function activarVideo(contenedor) {
     // 1. Inyectamos el video en el contenedor
     contenedor.innerHTML = `
         <video id="tutorial-video" controls playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px; object-fit: contain; background: #000;">
-            <source src="images/tutorial.mp4" type="video/mp4">
+            <source src="images/explicativo.mp4" type="video/mp4">
             Tu navegador no soporta la reproducción de este video.
         </video>
     `;
