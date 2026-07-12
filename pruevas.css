@@ -29,6 +29,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1400px;
+    max-height: 120px;
     padding: 20px 6%;
     background-color: rgba(10, 13, 26, 0.95);
     border-bottom: 2px solid var(--primary-neon);
